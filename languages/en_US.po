@@ -1,0 +1,199 @@
+# Copyright (C) 2021 Prashant Baldha
+# This file is distributed under the GPL v3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Featured Products First for WooCommerce Pro 1.8.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/featured-products-"
+"first-for-woocommerce-plugatic\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-05-20 04:14+0530\n"
+"PO-Revision-Date: 2021-05-20 04:15+0530\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Domain: featured-products-first-for-woocommerce\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en_US\n"
+
+#. Plugin Name of the plugin
+msgid "Featured Products First for WooCommerce Pro"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://profiles.wordpress.org/pmbaldha/"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Places featured products listed first On Shop Page, Category Archive Page, "
+"and Search Page."
+msgstr ""
+
+#. Author of the plugin
+msgid "Prashant Baldha"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.prashantwp.com/"
+msgstr ""
+
+#: includes/class-wff-admin.php:27 includes/class-wff-admin.php:42
+msgid "Featured Product First For WooCommerce"
+msgstr ""
+
+#: includes/class-wff-admin.php:28 includes/class-wff-admin.php:129
+#: includes/class-wff-admin.php:168
+msgid "Featured Product First"
+msgstr ""
+
+#: includes/class-wff-admin.php:49
+msgid "Getting started"
+msgstr ""
+
+#: includes/class-wff-admin.php:55
+msgid ""
+"To configure featured product first, Please %s click here%s (%sAdmin "
+"Dashboard > WooCommerce > Settings > Products%s). You will find screen as "
+"below:"
+msgstr ""
+
+#: includes/class-wff-admin.php:69
+msgid "Thank You for using Featured Product First For WooCommerce"
+msgstr ""
+
+#: includes/class-wff-admin.php:78
+msgid ""
+"Free version of plugin displays featured product first on shop, archive and "
+"search page with woocommerce default sorting. If you would like to sorting "
+"everyewhere, Please %sUpgrade Now!%s"
+msgstr ""
+
+#: includes/class-wff-admin.php:85
+msgid ""
+"%sPro version%s of plugin can display featured product first on any sorting "
+"order"
+msgstr ""
+
+#: includes/class-wff-admin.php:99
+msgid ""
+"If you face any trouble, Please feel free to email me on %s any time. I am "
+"always happy to help you."
+msgstr ""
+
+#: includes/class-wff-admin.php:101
+msgid "Please feel free to open support ticket on %s, If you found any issue."
+msgstr ""
+
+#: includes/class-wff-admin.php:101
+msgid "Support Forum"
+msgstr ""
+
+#: includes/class-wff-admin.php:115
+msgid ""
+"Free \"Featured Product First for Woocommerce\" Plugin displays feaured "
+"products first with Default sorting (custom ordering + name). <br/>Pro "
+"version  Plugin displays feaured products first with any sorting order. To "
+"take benifits of this feature, Please %sUpgrade Now%s."
+msgstr ""
+
+#: includes/class-wff-admin.php:166
+msgid "Pro version feature!! To use this feature, Please %sUpgrade Now%s."
+msgstr ""
+
+#: includes/class-wff-admin.php:174
+msgid "Enable Featured Products First Everywhere"
+msgstr ""
+
+#: includes/class-wff-admin.php:175
+msgid ""
+"If you will tick this option, The featured product will be displayed first "
+"everywhere. There are not needs to configure any other option, so other "
+"options related featured product are hidden when you tick this option."
+msgstr ""
+
+#: includes/class-wff-admin.php:175
+msgid "We highly recommended to tick this checkbox"
+msgstr ""
+
+#: includes/class-wff-admin.php:182 includes/class-wff-admin.php:190
+#: includes/class-wff-admin.php:198 includes/class-wff-admin.php:206
+msgid "Enable Featured Products First on Page"
+msgstr ""
+
+#: includes/class-wff-admin.php:183
+msgid "Shop Page"
+msgstr ""
+
+#: includes/class-wff-admin.php:191
+msgid "Product Search Page"
+msgstr ""
+
+#: includes/class-wff-admin.php:199
+msgid "Archive Product Category Page"
+msgstr ""
+
+#: includes/class-wff-admin.php:207
+msgid "Admin Dashboard Product Listing Page"
+msgstr ""
+
+#: includes/class-wff-admin.php:225
+msgid "Enable Featured Products First Order on Sorting Order"
+msgstr ""
+
+#: includes/class-wff-admin.php:235
+msgid "Place no. of featured product first"
+msgstr ""
+
+#: includes/class-wff-admin.php:236
+msgid "0 = Unlimited, otherwise Specify any number more than 0"
+msgstr ""
+
+#: includes/class-wff.php:41
+msgid "Default sorting (custom ordering + name)"
+msgstr ""
+
+#: includes/class-wff.php:42
+msgid "Popularity (sales)"
+msgstr ""
+
+#: includes/class-wff.php:43
+msgid "Average rating"
+msgstr ""
+
+#: includes/class-wff.php:44
+msgid "Sort by most recent"
+msgstr ""
+
+#: includes/class-wff.php:45
+msgid "Sort by price (asc)"
+msgstr ""
+
+#: includes/class-wff.php:46
+msgid "Sort by price (desc)"
+msgstr ""
+
+#: includes/class-wff.php:88
+msgid "Settings"
+msgstr ""
+
+#: includes/widgets/class-wff-widget-fetured-product.php:23
+msgid "Display a list of fetaured products."
+msgstr ""
+
+#: includes/widgets/class-wff-widget-fetured-product.php:25
+msgid "WooCommerce Fetured Product"
+msgstr ""
+
+#: includes/widgets/class-wff-widget-fetured-product.php:29
+msgid "Featured Products"
+msgstr ""
+
+#: includes/widgets/class-wff-widget-fetured-product.php:30
+msgid "Title"
+msgstr ""
+
+#: includes/widgets/class-wff-widget-fetured-product.php:38
+msgid "Number of products to show"
+msgstr ""
