@@ -26,7 +26,9 @@ Maximize your profitability by putting your favorite products first.
 * 100% GPL code, Compatible with GPL v3
 * Configurable
 
-*[Buy Pro Version](https://checkout.freemius.com/mode/dialog/plugin/1689/plan/2469/)*
+#### PRO Links:
+* **[Pro Version of Featured Product First for WooCommerce Plugin Demo](https://www.prashantwp.com/woo-addon-demo/shop/)**
+* [Buy Pro Version](https://checkout.freemius.com/mode/dialog/plugin/1689/plan/2469/)
 
 #### Plans:
 
