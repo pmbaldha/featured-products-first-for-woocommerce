@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Plugin Name: Featured Products First for WooCommerce
- * Plugin URI: https://profiles.wordpress.org/pmbaldha/
+ * Plugin URI: https://.prashantwp.com/
  * Description: Places featured products listed first On Shop Page, Category Archive Page, and Search Page.
- * Version: 1.8.1
- * Author: Prashant Baldha
+ * Version: 1.8.2
+ * Author:Prashant Baldha - WooCommerce Woo Expert
  * Author URI: https://www.prashantwp.com/
  * Requires at least: 4.8.1
  * Tested up to: 5.7.2
@@ -12,7 +13,7 @@
  * Text Domain: featured-products-first-for-woocommerce
  * Domain Path: /languages/
  * WC requires at least: 4.0
- * WC tested up to: 5.3.0
+ * WC tested up to: 6.0.0
  * License: GPL v3 or later
  * License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
  *

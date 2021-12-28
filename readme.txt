@@ -1,11 +1,11 @@
 === Featured Products First for WooCommerce ===
-Contributors: pmbaldha
+Contributors: pmbaldha, woocommerce9, freemius
 Tags: featured, product, woocommerce
 Donate link: http://prashantwp.com/
 Requires at least: 4.0
-Tested up to: 5.7.2
+Tested up to: 5.8.2
 Requires PHP: 5.6
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -17,39 +17,31 @@ Displays featured product first everywhere with any sorting order. It provides a
 Maximize your profitability by putting your favorite products first.  
 
 #### Full Features List:
-* Displays Feature Product first on any sorting order
-* Featured Product First on Shop, Archive, and Product Search Page
+* Featured Product First on Shop, Archive, Product Search Page and Admin Dashboard Product Listing
 * Displays featured product first in custom WP query
-* **NO LIMITATIONS** on the number of featured products displayed first.
 * Featured Products Widget
 * **Continuously improvement** in the Featured Product First for WooCommerce codebase day by day.
 * 100% GPL code, Compatible with GPL v3
 * Configurable
 
-#### PRO Links:
-* **[Pro Version of Featured Product First for WooCommerce Plugin Demo](https://www.prashantwp.com/woo-addon-demo/shop/)**
-* [Buy Pro Version](https://checkout.freemius.com/mode/dialog/plugin/1689/plan/2469/)
+*[Buy Pro Version](https://checkout.freemius.com/mode/dialog/plugin/1689/plan/2469/)*
 
 #### Plans:
 
 > #### FREE:
-> * Displays Featured Product First On Shop and Archive Category pages with WooCommerce 
+> * Displays Featured Product First On any pages with WooCommerce
 > * Featured Product First Widget
 > * Enable / Disable Display Featured Product First on Pages
-> * Support by [Wordpress.org Forum](https://wordpress.org/support/plugin/featured-products-first-for-woocommerce)
+> * You can pass "is_featured_first" with true value to display featured product first for custom query products result.
+> * Normal Support by [WordPress.org Forum](https://wordpress.org/support/plugin/featured-products-first-for-woocommerce)
 > * Normal Priority Support
 > * Multilingual
 > * 100% GPL code, Compatible with GPL v3
 
-
 > #### PRO:
-> * Displays Featured Product First On Any Sorting Order
-> * Displays Featured Product First Everywhere
-> * You can pass "is_featured_first" with true value to display featured product first for custom query products result
-> * Enable / Disable Display Featured Product First on any Sorting Orders
-> * Enable / Disable Display Featured Product First on Pages
-> * Multilingual
-> * 100% GPL code, Compatible with GPL v3
+> * **NO LIMITATIONS** on the number of featured products displayed first
+> * Sorting of Featured Products in any sorting order
+> * Premium fast support
 
 You can buy the Featured Product First for the WooCommerce PRO version on [https://checkout.freemius.com/mode/dialog/plugin/1689/plan/2469/](https://checkout.freemius.com/mode/dialog/plugin/1689/plan/2469/)
 
@@ -99,6 +91,12 @@ The free version of the Featured Product First for WooCommerce Plugin displays f
 9. Featured Product widget
 
 == Changelog ==
+
+= 1.8.2, December 14, 2021 =
+* NEW: Give all options of "Enable Featured Products First on Page" to free version from premium version.
+* NEW: Remove Sorting order checkboxes settings because they are no longer required.
+* COMPATIBILITY: Compatible with WooCommerce 6.0.
+* REFACTOR: Remove posts_orderby filter hook function to put featured product first. Instead, used posts_clauses filter hook function to put featured products first.
 
 = 1.8.1, May 14, 2021 =
 * FIX: In Sale featured products were not be placed first in the Product listing of WooCommerce
