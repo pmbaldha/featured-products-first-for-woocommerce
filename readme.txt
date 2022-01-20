@@ -65,11 +65,9 @@ Did exactly what it said on the box.
 > Anzalabdulla53 ⭐⭐⭐⭐⭐
 > It did the work easy and fast!
 
-> limitcracker ⭐⭐⭐⭐⭐
+> Limitcracker ⭐⭐⭐⭐⭐
 > Excellent Plug-in and very useful
 
-> limitcracker ⭐⭐⭐⭐⭐
-> It did the work easy and fast!
 
 == Useful WooCommerce Links ==
 * [WooCommerce](https://woocommerce.com/)
