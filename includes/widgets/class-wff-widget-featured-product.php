@@ -20,14 +20,15 @@ class WFF_Widget_Featured_Product extends WC_Widget {
 	 */
 	public function __construct() {
 		$this->widget_cssclass    = 'woocommerce woocommerce_fetured_products';
-		$this->widget_description = __( 'Display a list of fetaured products.', 'featured-products-first-for-woocommerce' );
+		$this->widget_description = __( 'Display a list of fetaured products.',
+			'featured-products-first-for-woocommerce' );
 		$this->widget_id          = 'woocommerce_fetured_products';
 		$this->widget_name        = __( 'WooCommerce Fetured Product', 'featured-products-first-for-woocommerce' );
 		$this->settings           = array(
 			'title'  => array(
 				'type'  => 'text',
 				'std'   => __( 'Featured Products', 'featured-products-first-for-woocommerce' ),
-				'label' => __( 'Title', 'featured-products-first-for-woocommerce' )
+				'label' => __( 'Title', 'featured-products-first-for-woocommerce' ),
 			),
 			'number' => array(
 				'type'  => 'number',
@@ -35,8 +36,8 @@ class WFF_Widget_Featured_Product extends WC_Widget {
 				'min'   => 1,
 				'max'   => '',
 				'std'   => 5,
-				'label' => __( 'Number of products to show', 'featured-products-first-for-woocommerce' )
-			)
+				'label' => __( 'Number of products to show', 'featured-products-first-for-woocommerce' ),
+			),
 		);
 
 		parent::__construct();
@@ -45,13 +46,14 @@ class WFF_Widget_Featured_Product extends WC_Widget {
 	/**
 	 * Output widget.
 	 *
-	 * @see WP_Widget
-	 *
 	 * @param array $args
 	 * @param array $instance
+	 *
+	 * @see WP_Widget
+	 *
 	 */
 	public function widget( $args, $instance ) {
-		
+
 		if ( $this->get_cached_widget( $args ) ) {
 			return;
 		}
@@ -60,23 +62,23 @@ class WFF_Widget_Featured_Product extends WC_Widget {
 
 		$number = ! empty( $instance['number'] ) ? absint( $instance['number'] ) : $this->settings['number']['std'];
 
-		if ( version_compare(WC()->version, 3.0) >= 0 ) {
-			$query_args = array( 
-				'posts_per_page' => $number, 
-				'no_found_rows' => 1, 
-				'post_status' => 'publish', 
-				'post_type' => 'product',  
-				'post__in' => wc_get_featured_product_ids(),
+		if ( version_compare( WC()->version, 3.0 ) >= 0 ) {
+			$query_args = array(
+				'posts_per_page' => $number,
+				'no_found_rows'  => 1,
+				'post_status'    => 'publish',
+				'post_type'      => 'product',
+				'post__in'       => wc_get_featured_product_ids(),
 			);
 		} else {
-			$query_args = array( 
-				'posts_per_page' => $number, 
-				'no_found_rows' => 1, 
-				'post_status' => 'publish', 
-				'post_type' => 'product',  
-				'meta_key' => '_featured',  
-				'meta_value' => 'yes', 
-				'meta_compare' => '=' 
+			$query_args = array(
+				'posts_per_page' => $number,
+				'no_found_rows'  => 1,
+				'post_status'    => 'publish',
+				'post_type'      => 'product',
+				'meta_key'       => '_featured',
+				'meta_value'     => 'yes',
+				'meta_compare'   => '=',
 			);
 		}
 		$query_args['meta_query'] = WC()->query->get_meta_query();
@@ -98,7 +100,7 @@ class WFF_Widget_Featured_Product extends WC_Widget {
 
 			$this->widget_end( $args );
 		}
-		
+
 		wp_reset_postdata();
 
 		$content = ob_get_clean();
@@ -115,6 +117,7 @@ class WFF_Widget_Featured_Product extends WC_Widget {
  * @since 2.3.0
  */
 function wff_register_widgets() {
-	register_widget( 'WFF_Widget_Featured_Product' );	
+	register_widget( 'WFF_Widget_Featured_Product' );
 }
+
 add_action( 'widgets_init', 'wff_register_widgets' );

@@ -1,9 +1,9 @@
 <?php
-if ( !defined( 'ABSPATH' ) ) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-if (!function_exists('wff_get_featured_product_ids')) {
+if ( ! function_exists( 'wff_get_featured_product_ids' ) ) {
 	function wff_get_featured_product_ids() {
 
 		// Load from cache.
@@ -15,10 +15,10 @@ if (!function_exists('wff_get_featured_product_ids')) {
 		}
 
 		$product_visibility_term_ids = wc_get_product_visibility_term_ids();
-		$featured_products_ids = get_posts(
+		$featured_products_ids       = get_posts(
 			array(
 				'post_type'      => array( 'product', 'product_variation' ),
-				'posts_per_page' => -1,
+				'posts_per_page' => - 1,
 				'post_status'    => 'publish',
 				'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 					array(
@@ -31,7 +31,7 @@ if (!function_exists('wff_get_featured_product_ids')) {
 			)
 		);
 
-		$featured_products_ids = array_reverse( $featured_products_ids );
+		$featured_products_ids          = array_reverse( $featured_products_ids );
 		$filtered_featured_products_ids = apply_filters( 'wff_featured_products_ids', $featured_products_ids );
 
 		set_transient( 'wff_featured_products_ids', $filtered_featured_products_ids, DAY_IN_SECONDS * 30 );

@@ -81,6 +81,43 @@ class WFF_Premium
         return $sorted_product_ids;
     }
     
+    private function order_products_ids_by_meta( $product_ids, $meta_key, $order = 'ASC' )
+    {
+        if ( empty($product_ids) || empty($meta_key) ) {
+            return $product_ids;
+        }
+        global  $wpdb ;
+        $sql = 'SELECT post_id FROM ' . $wpdb->postmeta . ' WHERE post_id IN (' . implode( ',', $product_ids ) . ") AND meta_key='" . $meta_key . "' ORDER BY meta_value " . $order;
+        $sorted_product_ids = $wpdb->get_col( $sql );
+        return $sorted_product_ids;
+    }
+    
+    /**
+     * Sort by looking in wc_product_meta_lookup table
+     *
+     * @param array $product_ids Products ids which need to be sorted
+     * @param string $field product_meta_lookup field
+     * @param string $order either ASC or DESC
+     *
+     * @return array sorted product ids
+     */
+    private function order_products_ids_by_product_meta_lookup( $product_ids, $field, $order = 'ASC' )
+    {
+        if ( empty($product_ids) || empty($field) ) {
+            return $product_ids;
+        }
+        global  $wpdb ;
+        $sql = "SELECT product_id FROM {$wpdb->wc_product_meta_lookup} WHERE product_id\tIN (" . implode( ',', $product_ids ) . ') ORDER BY ' . $field . ' ' . $order . ', product_id DESC';
+        $sorted_product_ids = $wpdb->get_col( $sql );
+        return $sorted_product_ids;
+    }
+    
+    private function get_orderby_value()
+    {
+        $orderby_value = ( isset( $_GET['orderby'] ) ? wc_clean( (string) $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) ) );
+        return $orderby_value;
+    }
+    
     public function wff_no_of_featured_product_first_default_value( $default_value )
     {
         $default_value = 0;
