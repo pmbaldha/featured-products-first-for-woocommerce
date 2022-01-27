@@ -1,9 +1,10 @@
 <?php
+
 /**
  * Plugin Name: Featured Products First for WooCommerce
  * Plugin URI: https://prashantwp.com/
  * Description: Places featured products listed first On Shop Page, Category Archive Page, and Search Page.
- * Version: 1.9.1
+ * Version: 1.9.3
  * Author: WooCommerce  Expert - WooCommerce Developer - Featured Product First for WooCommerce Plugin Developer
  * Author URI: https://www.prashantwp.com/
  * Requires at least: 4.8.1
@@ -29,13 +30,16 @@
  * You should have received a copy of the GNU General Public License
  * along with Featured Products First for WooCommerce. If not, see <http://www.gnu.org/licenses/>.
  *
+ * @package Featured Product First for WooCommerce
  */
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
 
 if ( !function_exists( 'wff' ) ) {
-    // Create a helper function for easy SDK access.
+    /**
+     * Create a helper function for easy SDK access.
+     */
     function wff()
     {
         global  $wff ;
@@ -88,10 +92,10 @@ if ( !function_exists( 'wff' ) ) {
     }
     require_once WFF_DIR . '/includes/helper.php';
     /**
-     * Check if WooCommerce is active
+     * Check if WooCommerce is active.
      */
     if ( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-        // return;
+        return;
     }
     require_once WFF_DIR . '/includes/class-wff.php';
     if ( is_admin() ) {

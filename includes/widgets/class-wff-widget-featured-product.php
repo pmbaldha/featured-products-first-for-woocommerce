@@ -7,8 +7,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Featured Products Widget.
  *
- * @author   pmbaldha
- * @category Widgets
  * @package  featured-products-first-for-woocommerce/Widgets
  * @version  0.1
  * @extends  WC_Widget
@@ -20,8 +18,10 @@ class WFF_Widget_Featured_Product extends WC_Widget {
 	 */
 	public function __construct() {
 		$this->widget_cssclass    = 'woocommerce woocommerce_fetured_products';
-		$this->widget_description = __( 'Display a list of fetaured products.',
-			'featured-products-first-for-woocommerce' );
+		$this->widget_description = __(
+			'Display a list of fetaured products.',
+			'featured-products-first-for-woocommerce'
+		);
 		$this->widget_id          = 'woocommerce_fetured_products';
 		$this->widget_name        = __( 'WooCommerce Fetured Product', 'featured-products-first-for-woocommerce' );
 		$this->settings           = array(
@@ -50,7 +50,6 @@ class WFF_Widget_Featured_Product extends WC_Widget {
 	 * @param array $instance
 	 *
 	 * @see WP_Widget
-	 *
 	 */
 	public function widget( $args, $instance ) {
 

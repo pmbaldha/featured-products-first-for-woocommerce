@@ -4,13 +4,13 @@
 	 * @copyright   Copyright (c) 2015, Freemius, Inc.
 	 * @license     https://www.gnu.org/licenses/gpl-3.0.html GNU General Public License Version 3
 	 * @since       1.1.4
-     *
-     * @deprecated  This file is no longer in use. It's still in the project for backward compatibility.
+	 *
+	 * @deprecated  This file is no longer in use. It's still in the project for backward compatibility.
 	 */
 
-	if ( ! defined( 'ABSPATH' ) ) {
-		exit;
-	}
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 	require_once dirname( __FILE__ ) . '/l10n.php';
 
@@ -97,54 +97,54 @@
 		'optin-x-now'                   => _fs_text( 'Opt in to make "%s" better!' ),
 		'error'                         => _fs_text( 'Error' ),
 		'failed-finding-main-path'      => _fs_text( 'Freemius SDK couldn\'t find the plugin\'s main file. Please contact sdk@freemius.com with the current error.' ),
-        'learn-more'                    => _fs_text( 'Learn more' ),
-        'license_not_whitelabeled'      => _fs_text( "Is this your client's site? %s if you wish to hide sensitive info like your billing address and invoices from the WP Admin."),
-        'license_whitelabeled'          => _fs_text( 'Your %s license was flagged as white-labeled to hide sensitive information from the WP Admin (e.g. your billing address and invoices). If you ever wish to revert it back, you can easily do it through your %s. If this was a mistake you can also %s.'),
+		'learn-more'                    => _fs_text( 'Learn more' ),
+		'license_not_whitelabeled'      => _fs_text( "Is this your client's site? %s if you wish to hide sensitive info like your billing address and invoices from the WP Admin."),
+		'license_whitelabeled'          => _fs_text( 'Your %s license was flagged as white-labeled to hide sensitive information from the WP Admin (e.g. your billing address and invoices). If you ever wish to revert it back, you can easily do it through your %s. If this was a mistake you can also %s.'),
 
 		#region Affiliation
-        'affiliation'                        => _fs_text( 'Affiliation' ),
-        'affiliate'                          => _fs_text( 'Affiliate' ),
-        'affiliate-tracking'                 => _fs_text( '%s tracking cookie after the first visit to maximize earnings potential.' ),
-        'renewals-commission'                => _fs_text( 'Get commission for automated subscription renewals.' ),
-        'affiliate-application-accepted'     => _fs_text( "Your affiliate application for %s has been accepted! Log in to your affiliate area at: %s." ),
-        'affiliate-application-thank-you'    => _fs_text( "Thank you for applying for our affiliate program, we'll review your details during the next 14 days and will get back to you with further information." ),
-        'affiliate-application-rejected'     => _fs_text( "Thank you for applying for our affiliate program, unfortunately, we've decided at this point to reject your application. Please try again in 30 days." ),
-        'affiliate-account-suspended'        => _fs_text( 'Your affiliation account was temporarily suspended.' ),
-        'affiliate-account-blocked'          => _fs_text( 'Due to violation of our affiliation terms, we decided to temporarily block your affiliation account. If you have any questions, please contact support.' ),
-        'become-an-ambassador'               => _fs_text( 'Like the %s? Become our ambassador and earn cash ;-)' ),
-        'become-an-ambassador-admin-notice'  => _fs_text( 'Hey there, did you know that %s has an affiliate program? If you like the %s you can become our ambassador and earn some cash!' ),
-        'refer-new-customers'                => _fs_text( 'Refer new customers to our %s and earn %s commission on each successful sale you refer!' ),
-        'program-summary'                    => _fs_text( 'Program Summary' ),
-        'commission-on-new-license-purchase' => _fs_text( '%s commission when a customer purchases a new license.' ),
-        'unlimited-commissions'              => _fs_text( 'Unlimited commissions.' ),
-        'minimum-payout-amount'              => _fs_text( '%s minimum payout amount.' ),
-        'payouts-unit-and-processing'        => _fs_text( 'Payouts are in USD and processed monthly via PayPal.' ),
-        'commission-payment'                 => _fs_text( 'As we reserve 30 days for potential refunds, we only pay commissions that are older than 30 days.' ),
-        'become-an-affiliate'                => _fs_text( 'Become an affiliate' ),
-        'apply-to-become-an-affiliate'       => _fs_text( 'Apply to become an affiliate' ),
-        'full-name'                          => _fs_text( 'Full name' ),
-        'paypal-account-email-address'       => _fs_text( 'PayPal account email address' ),
-        'promotion-methods'                  => _fs_text( 'Promotion methods' ),
-        'social-media'                       => _fs_text( 'Social media (Facebook, Twitter, etc.)' ),
-        'mobile-apps'                        => _fs_text( 'Mobile apps' ),
-        'statistics-information-field-label' => _fs_text( 'Website, email, and social media statistics (optional)' ),
-        'statistics-information-field-desc'  => _fs_text( 'Please feel free to provide any relevant website or social media statistics, e.g. monthly unique site visits, number of email subscribers, followers, etc. (we will keep this information confidential).' ),
-        'promotion-method-desc-field-label'  => _fs_text( 'How will you promote us?' ),
-        'promotion-method-desc-field-desc'   => _fs_text( 'Please provide details on how you intend to promote %s (please be as specific as possible).' ),
-        'domain-field-label'                 => _fs_text( 'Where are you going to promote the %s?' ),
-        'domain-field-desc'                  => _fs_text( 'Enter the domain of your website or other websites from where you plan to promote the %s.' ),
-        'extra-domain-fields-label'          => _fs_text( 'Extra Domains' ),
-        'extra-domain-fields-desc'           => _fs_text( 'Extra domains where you will be marketing the product from.' ),
-        'add-another-domain'                 => _fs_text( 'Add another domain' ),
-        'remove'                             => _fs_x( 'Remove', 'Remove domain' ),
-        'email-address-is-required'          => _fs_text( 'Email address is required.' ),
-        'domain-is-required'                 => _fs_text( 'Domain is required.' ),
-        'invalid-domain'                     => _fs_text( 'Invalid domain' ),
-        'paypal-email-address-is-required'   => _fs_text( 'PayPal email address is required.' ),
-        'processing'                         => _fs_text( 'Processing...' ),
-        'non-expiring'                       => _fs_text( 'Non-expiring' ),
-        'account-is-pending-activation'      => _fs_text( 'Account is pending activation.' ),
-        #endregion Affiliation
+		'affiliation'                        => _fs_text( 'Affiliation' ),
+		'affiliate'                          => _fs_text( 'Affiliate' ),
+		'affiliate-tracking'                 => _fs_text( '%s tracking cookie after the first visit to maximize earnings potential.' ),
+		'renewals-commission'                => _fs_text( 'Get commission for automated subscription renewals.' ),
+		'affiliate-application-accepted'     => _fs_text( 'Your affiliate application for %s has been accepted! Log in to your affiliate area at: %s.' ),
+		'affiliate-application-thank-you'    => _fs_text( "Thank you for applying for our affiliate program, we'll review your details during the next 14 days and will get back to you with further information." ),
+		'affiliate-application-rejected'     => _fs_text( "Thank you for applying for our affiliate program, unfortunately, we've decided at this point to reject your application. Please try again in 30 days." ),
+		'affiliate-account-suspended'        => _fs_text( 'Your affiliation account was temporarily suspended.' ),
+		'affiliate-account-blocked'          => _fs_text( 'Due to violation of our affiliation terms, we decided to temporarily block your affiliation account. If you have any questions, please contact support.' ),
+		'become-an-ambassador'               => _fs_text( 'Like the %s? Become our ambassador and earn cash ;-)' ),
+		'become-an-ambassador-admin-notice'  => _fs_text( 'Hey there, did you know that %s has an affiliate program? If you like the %s you can become our ambassador and earn some cash!' ),
+		'refer-new-customers'                => _fs_text( 'Refer new customers to our %s and earn %s commission on each successful sale you refer!' ),
+		'program-summary'                    => _fs_text( 'Program Summary' ),
+		'commission-on-new-license-purchase' => _fs_text( '%s commission when a customer purchases a new license.' ),
+		'unlimited-commissions'              => _fs_text( 'Unlimited commissions.' ),
+		'minimum-payout-amount'              => _fs_text( '%s minimum payout amount.' ),
+		'payouts-unit-and-processing'        => _fs_text( 'Payouts are in USD and processed monthly via PayPal.' ),
+		'commission-payment'                 => _fs_text( 'As we reserve 30 days for potential refunds, we only pay commissions that are older than 30 days.' ),
+		'become-an-affiliate'                => _fs_text( 'Become an affiliate' ),
+		'apply-to-become-an-affiliate'       => _fs_text( 'Apply to become an affiliate' ),
+		'full-name'                          => _fs_text( 'Full name' ),
+		'paypal-account-email-address'       => _fs_text( 'PayPal account email address' ),
+		'promotion-methods'                  => _fs_text( 'Promotion methods' ),
+		'social-media'                       => _fs_text( 'Social media (Facebook, Twitter, etc.)' ),
+		'mobile-apps'                        => _fs_text( 'Mobile apps' ),
+		'statistics-information-field-label' => _fs_text( 'Website, email, and social media statistics (optional)' ),
+		'statistics-information-field-desc'  => _fs_text( 'Please feel free to provide any relevant website or social media statistics, e.g. monthly unique site visits, number of email subscribers, followers, etc. (we will keep this information confidential).' ),
+		'promotion-method-desc-field-label'  => _fs_text( 'How will you promote us?' ),
+		'promotion-method-desc-field-desc'   => _fs_text( 'Please provide details on how you intend to promote %s (please be as specific as possible).' ),
+		'domain-field-label'                 => _fs_text( 'Where are you going to promote the %s?' ),
+		'domain-field-desc'                  => _fs_text( 'Enter the domain of your website or other websites from where you plan to promote the %s.' ),
+		'extra-domain-fields-label'          => _fs_text( 'Extra Domains' ),
+		'extra-domain-fields-desc'           => _fs_text( 'Extra domains where you will be marketing the product from.' ),
+		'add-another-domain'                 => _fs_text( 'Add another domain' ),
+		'remove'                             => _fs_x( 'Remove', 'Remove domain' ),
+		'email-address-is-required'          => _fs_text( 'Email address is required.' ),
+		'domain-is-required'                 => _fs_text( 'Domain is required.' ),
+		'invalid-domain'                     => _fs_text( 'Invalid domain' ),
+		'paypal-email-address-is-required'   => _fs_text( 'PayPal email address is required.' ),
+		'processing'                         => _fs_text( 'Processing...' ),
+		'non-expiring'                       => _fs_text( 'Non-expiring' ),
+		'account-is-pending-activation'      => _fs_text( 'Account is pending activation.' ),
+		#endregion Affiliation
 
 		#region Account
 		'expiration'                   => _fs_x( 'Expiration', 'as expiration date' ),
@@ -258,7 +258,7 @@
 		'placeholder-feature'                      => _fs_text( 'What feature?' ),
 		'placeholder-share-what-didnt-work'        => _fs_text( "Kindly share what didn't work so we can fix it for future users..." ),
 		'placeholder-what-youve-been-looking-for'  => _fs_text( "What you've been looking for?" ),
-		'placeholder-what-did-you-expect'          => _fs_text( "What did you expect?" ),
+		'placeholder-what-did-you-expect'          => _fs_text( 'What did you expect?' ),
 		'reason-didnt-work'                        => _fs_text( "The %s didn't work" ),
 		'reason-dont-like-to-share-my-information' => _fs_text( "I don't like to share my information with you" ),
 		'dont-have-to-share-any-data'              => _fs_text( "You might have missed it, but you don't have to share any data and can just %s the opt-in." ),
@@ -447,7 +447,7 @@
 		'connectivity-test-maybe-temporary'        => _fs_text( 'It\'s probably a temporary issue on our end. Just to be sure, with your permission, would it be o.k to run another connectivity test?' ),
 		'curl-missing-message'                     => _fs_text( 'We use PHP cURL library for the API calls, which is a very common library and usually installed and activated out of the box. Unfortunately, cURL is not activated (or disabled) on your server.' ),
 		'curl-disabled-methods'                    => _fs_text( 'Disabled method(s):' ),
-        'cloudflare-blocks-connection-message'     => _fs_text( 'From unknown reason, CloudFlare, the firewall we use, blocks the connection.' ),
+		'cloudflare-blocks-connection-message'     => _fs_text( 'From unknown reason, CloudFlare, the firewall we use, blocks the connection.' ),
 		'x-requires-access-to-api'                 => _fs_x( '%s requires an access to our API.',
 			'as pluginX requires an access to our API' ),
 		'squid-blocks-connection-message'          => _fs_text( 'It looks like your server is using Squid ACL (access control lists), which blocks the connection.' ),
@@ -546,7 +546,7 @@
 		'auto-install-error-premium-addon-activated' => _fs_text( 'Premium add-on version already installed.' ),
 		'auto-install-error-invalid-license'         => _fs_text( 'You do not have a valid license to access the premium version.' ),
 		'auto-install-error-serviceware'             => _fs_text( 'Plugin is a "Serviceware" which means it does not have a premium code version.' ),
-        #endregion
+		#endregion
 
 		/* translators: %s: Page name */
 		'secure-x-page-header' => _fs_text( 'Secure HTTPS %s page, running from an external domain' ),

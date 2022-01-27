@@ -3,9 +3,9 @@ Contributors: pmbaldha, woocommerce9, freemius
 Tags: featured, product, woocommerce
 Donate link: http://prashantwp.com/
 Requires at least: 4.0
-Tested up to: 5.8.3
+Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 1.9.1
+Stable tag: 1.9.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -24,8 +24,6 @@ Maximize your profitability  by putting your favorite products first. 💰️�
 🏆  **Continuously improvement** in the Featured Product First for WooCommerce codebase day by day.
 🏆  100% GPL code, Compatible with GPL v3.
 🏆  It is configurable from WooCommerce Settings.
-
-*[Buy Pro Version](https://checkout.freemius.com/mode/dialog/plugin/1689/plan/2469/)*
 
 #### Plans:
 
@@ -68,12 +66,10 @@ Did exactly what it said on the box.
 > Limitcracker ⭐⭐⭐⭐⭐
 > Excellent Plug-in and very useful
 
-
 == Useful WooCommerce Links ==
 * [WooCommerce](https://woocommerce.com/)
 * [WooCommerce on the WordPress.org Repository](https://wordpress.org/plugins/woocommerce/)
 * [WooCommerce Documentation](https://woocommerce.com/documentation/)
-
 
 == Installation ==
 1.Download your WordPress Plugin to your desktop. If downloaded as a zip archive, extract the Plugin folder to your desktop.
@@ -109,7 +105,6 @@ Go to your site Admin Dashboard > WooCommerce > Featured Product First > Upgrade
 = What is the main difference between the free version and premium version of Featured Product First for WooCommerce Plugin? =
 The free version of the Featured Product First for WooCommerce Plugin displays featured products first on the shop page, the archive page, the product category, and the search page with woocommerce default sorting. If you would like to sort everywhere, Please Premium version of the Featured Product First for WooCommerce Plugin.
 
-
 == Screenshots ==
 1. Featured Product First on Default Sorting Order
 2. Featured Product First on Sort by Popularity Order
@@ -122,6 +117,16 @@ The free version of the Featured Product First for WooCommerce Plugin displays f
 9. Featured Product widget
 
 == Changelog ==
+
+= 1.9.3, January 27, 2022 =
+* FIX: Sorting order in Featured Product Listing wasn't working. (Premium).
+* TWEAK: Removed unused CSS file.
+
+= 1.9.2, January 26, 2022 =
+* COMPATIBILITY: Compatible with WordPress version 5.9.
+* COMPATIBILITY: Compatible with WooCommerce version 6.1.1.
+* TWEAK: Improve SQL queries to order featured products.
+* TWEAK: Add translator comment for printf and sprintf translated strings.
 
 = 1.9.1, January 19, 2022 =
 * COMPATIBILITY: Compatible with WooCommerce version 6.1.0.

@@ -15,19 +15,19 @@
 	 * under the License.
 	 */
 
-	if ( ! defined( 'FS_API__VERSION' ) ) {
-		define( 'FS_API__VERSION', '1' );
-	}
-	if ( ! defined( 'FS_SDK__PATH' ) ) {
-		define( 'FS_SDK__PATH', dirname( __FILE__ ) );
-	}
-	if ( ! defined( 'FS_SDK__EXCEPTIONS_PATH' ) ) {
-		define( 'FS_SDK__EXCEPTIONS_PATH', FS_SDK__PATH . '/Exceptions/' );
-	}
+if ( ! defined( 'FS_API__VERSION' ) ) {
+	define( 'FS_API__VERSION', '1' );
+}
+if ( ! defined( 'FS_SDK__PATH' ) ) {
+	define( 'FS_SDK__PATH', dirname( __FILE__ ) );
+}
+if ( ! defined( 'FS_SDK__EXCEPTIONS_PATH' ) ) {
+	define( 'FS_SDK__EXCEPTIONS_PATH', FS_SDK__PATH . '/Exceptions/' );
+}
 
-	if ( ! function_exists( 'json_decode' ) ) {
-		throw new Exception( 'Freemius needs the JSON PHP extension.' );
-	}
+if ( ! function_exists( 'json_decode' ) ) {
+	throw new Exception( 'Freemius needs the JSON PHP extension.' );
+}
 
 	// Include all exception files.
 	$exceptions = array(
@@ -113,8 +113,8 @@
 			}
 
 			return '/v' . FS_API__VERSION . $base .
-			       ( ! empty( $pPath ) ? '/' : '' ) . $pPath .
-			       ( ( false === strpos( $pPath, '.' ) ) ? '.' . self::FORMAT : '' ) . $query;
+				   ( ! empty( $pPath ) ? '/' : '' ) . $pPath .
+				   ( ( false === strpos( $pPath, '.' ) ) ? '.' . self::FORMAT : '' ) . $query;
 		}
 
 		abstract function MakeRequest( $pCanonizedPath, $pMethod = 'GET', $pParams = array() );

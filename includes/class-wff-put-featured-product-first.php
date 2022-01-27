@@ -4,6 +4,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Put featured product first class.
+ */
 class WFF_Put_Featured_Product_First {
 
 	/**
@@ -11,18 +14,29 @@ class WFF_Put_Featured_Product_First {
 	 * responsible for add all actions and filters hooks for Premium
 	 */
 	public function __construct() {
-		if ( is_admin() ) {
-			// add_filter( 'admin_init', array($this, 'wff_premium_admin_init'));
-		}
 		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
-		add_filter( 'wff_is_featured_product_first_order_applicable',
-			array( $this, 'wff_is_featured_product_first_order_applicable' ), 10, 2 );
+		add_filter(
+			'wff_is_featured_product_first_order_applicable',
+			array( $this, 'wff_is_featured_product_first_order_applicable' ),
+			10,
+			2
+		);
 
-		// add_filter( 'posts_clauses', array( $this, 'posts_clauses' ), 20, 2 );
-		add_filter( 'woocommerce_shortcode_products_query', array( $this, 'woocommerce_shortcode_products_query' ), 10,
-			2 );
+		add_filter(
+			'woocommerce_shortcode_products_query',
+			array( $this, 'woocommerce_shortcode_products_query' ),
+			10,
+			2
+		);
 	}
 
+	/**
+	 * Pre get post set $is_featured_product_first flag.
+	 *
+	 * @param $query
+	 *
+	 * @return void
+	 */
 	public function pre_get_posts( $query ) {
 		$is_product_post_type            = isset( $query->query_vars['post_type'] ) && 'product' == $query->query_vars['post_type'];
 		$is_product_post_type_front_side = $is_product_post_type && ! is_admin();
@@ -35,19 +49,14 @@ class WFF_Put_Featured_Product_First {
 
 		$is_featured_product_first = false;
 		if ( 'yes' == get_option( 'wff_woocommerce_featured_first_enabled_everywhere' ) ) {
-			// echo '1';
 			$is_featured_product_first = true;
 		} elseif ( 'yes' == get_option( 'wff_woocommerce_featured_first_enabled_on_archive' ) && $is_product_archive_page ) {
-			// echo '2';
 			$is_featured_product_first = true;
 		} elseif ( get_option( 'wff_woocommerce_featured_first_enabled_on_admin' ) == 'yes' && $is_product_post_type_admin_side ) {
-			// echo '3';
 			$is_featured_product_first = true;
 		} elseif ( get_option( 'wff_woocommerce_featured_first_enabled_on_shop' ) == 'yes' && $is_product_post_type_front_side && empty( $query->query_vars['s'] ) ) {
-			// echo '4';
 			$is_featured_product_first = true;
 		} elseif ( get_option( 'wff_woocommerce_featured_first_enabled_on_search' ) == 'yes' && ! empty( $query->query_vars['s'] ) ) {
-			// echo '5';
 			$is_featured_product_first = true;
 		}
 
@@ -56,15 +65,24 @@ class WFF_Put_Featured_Product_First {
 		}
 	}
 
+	/**
+	 * Posts clauses action hook function.
+	 *
+	 * @param $clauses
+	 * @param $query
+	 *
+	 * @return mixed
+	 */
 	public function posts_clauses( $clauses, $query ) {
 
-		if ( apply_filters( 'wff_is_featured_product_first_order_applicable',
+		if ( apply_filters(
+			'wff_is_featured_product_first_order_applicable',
 			$query->is_main_query() && $query->is_archive &&
 			(
 				(
 					! empty( $query->query_vars['post_type'] )
 					&&
-					$query->query_vars['post_type'] == 'product'
+					'product' == $query->query_vars['post_type']
 				)
 				||
 				(
@@ -80,8 +98,9 @@ class WFF_Put_Featured_Product_First {
 				( get_option( 'wff_woocommerce_featured_first_enabled_on_search' ) == 'yes' && ! empty( $query->query_vars['s'] ) )
 				||
 				( get_option( 'wff_woocommerce_featured_first_enabled_on_archive' ) == 'yes' && empty( $query->query_vars['s'] ) && is_tax() )
-			)
-			, $query )
+			),
+			$query
+		)
 		) {
 			global $wff_woo_product_orders;
 			$special_orderby_array = array_keys( $wff_woo_product_orders );
@@ -110,11 +129,15 @@ class WFF_Put_Featured_Product_First {
 				$feature_product_ids = wff_get_featured_product_ids();
 				if ( is_array( $feature_product_ids ) && ! empty( $feature_product_ids ) ) {
 					if ( empty( $clauses['orderby'] ) ) {
-						$clauses['orderby'] = "FIELD(" . $wpdb->posts . ".ID,'" . implode( "','",
-								$feature_product_ids ) . "') DESC ";
+						$clauses['orderby'] = 'FIELD(' . $wpdb->posts . ".ID,'" . implode(
+								"','",
+								array_map( 'absint', $feature_product_ids )
+							) . "') DESC ";
 					} else {
-						$clauses['orderby'] = "FIELD(" . $wpdb->posts . ".ID,'" . implode( "','",
-								$feature_product_ids ) . "') DESC, " . $clauses['orderby'];
+						$clauses['orderby'] = 'FIELD(' . $wpdb->posts . ".ID,'" . implode(
+								"','",
+								array_map( 'absint', $feature_product_ids )
+							) . "') DESC, " . $clauses['orderby'];
 					}
 				}
 			}
@@ -123,26 +146,48 @@ class WFF_Put_Featured_Product_First {
 		return $clauses;
 	}
 
+	/**
+	 * Order product ids by field.
+	 *
+	 * @param $product_ids
+	 * @param $order_field_names
+	 * @param $order
+	 *
+	 * @return mixed
+	 */
 	private function order_products_ids_by_field( $product_ids, $order_field_names, $order = 'ASC' ) {
 		if ( empty( $product_ids ) || empty( $order_field_names ) ) {
 			return $product_ids;
 		}
 		global $wpdb;
-		$sql                = "SELECT ID FROM " . $wpdb->posts . " WHERE ID IN (" . implode( ',',
-				$product_ids ) . ") ORDER BY " . $order_field_names . " " . $order;
-		$sorted_product_ids = $wpdb->get_col( $sql );
-
+		$product_ids_for_sql = implode(',', array_map( 'absint', $product_ids ) );
+		$sorted_product_ids = $wpdb->get_col( $wpdb->prepare( 'SELECT ID FROM ' . $wpdb->posts . ' WHERE ID IN ( %0s ) ORDER BY %0s %0s', $product_ids_for_sql, $order_field_names, $order ) );
 		return $sorted_product_ids;
 	}
 
+	/**
+	 * Order products ids by meta.
+	 *
+	 * @param $product_ids
+	 * @param $meta_key
+	 * @param $order
+	 *
+	 * @return mixed
+	 */
 	private function order_products_ids_by_meta( $product_ids, $meta_key, $order = 'ASC' ) {
 		if ( empty( $product_ids ) || empty( $meta_key ) ) {
 			return $product_ids;
 		}
 		global $wpdb;
-		$sql                = "SELECT post_id FROM " . $wpdb->postmeta . " WHERE post_id IN (" . implode( ',',
-				$product_ids ) . ") AND meta_key='" . $meta_key . "' ORDER BY meta_value " . $order;
-		$sorted_product_ids = $wpdb->get_col( $sql );
+		$product_ids_for_sql = implode(',', array_map( 'absint', $product_ids ) );
+		$sorted_product_ids = $wpdb->get_col(
+			$wpdb->prepare(
+				'SELECT post_id FROM ' . $wpdb->postmeta . ' WHERE post_id IN ( %0s ) AND meta_key=%s ORDER BY meta_value %s',
+				$product_ids_for_sql,
+				$meta_key,
+				$order
+			)
+		);
 
 		return $sorted_product_ids;
 	}
@@ -161,36 +206,40 @@ class WFF_Put_Featured_Product_First {
 			return $product_ids;
 		}
 		global $wpdb;
-		$sql                = "SELECT product_id FROM {$wpdb->wc_product_meta_lookup} WHERE product_id	IN (" . implode( ',',
-				$product_ids ) . ") ORDER BY " . $field . " " . $order . ", product_id DESC";
-		$sorted_product_ids = $wpdb->get_col( $sql );
+		$product_ids_for_sql = implode( ',', array_map( 'absint', $product_ids ) );
+		$sorted_product_ids = $wpdb->get_col( $wpdb->prepare( 'SELECT product_id FROM ' . $wpdb->wc_product_meta_lookup . ' WHERE product_id	IN ( %0s ) ORDER BY %0s %0s, product_id DESC', $product_ids_for_sql, $field, $order ) );
 
 		return $sorted_product_ids;
 	}
 
-
+	/**
+	 * Get order by value.
+	 *
+	 * @return string
+	 */
 	private function get_orderby_value() {
-		$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( (string) $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby',
-			get_option( 'woocommerce_default_catalog_orderby' ) );
+		$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( (string) $_GET['orderby'] ) : apply_filters(
+			'woocommerce_default_catalog_orderby',
+			get_option( 'woocommerce_default_catalog_orderby' )
+		);
 
 		return $orderby_value;
 	}
 
 	/**
 	 * Modifying WooCommerce' product query filter based on $orderby value given
+	 *
 	 * @see WC_Query->get_catalog_ordering_args()
 	 */
-	function woocommerce_shortcode_products_query( $args, $atts ) {
+	public function woocommerce_shortcode_products_query( $args, $atts ) {
 		if ( 'yes' == get_option( 'wff_woocommerce_featured_first_enabled_everywhere' ) || 'yes' == get_option( 'wff_woocommerce_featured_first_enabled_on_shortcode' ) ) {
 			$args['is_featured_product_first'] = true;
 		}
 
 		return $args;
 	}
-
-
 }
 
 global $wff_put_feature_product_first;
 $wff_put_feature_product_first = new WFF_Put_Featured_Product_First();
-		
+

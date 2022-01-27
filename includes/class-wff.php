@@ -15,11 +15,11 @@ class WFF
     {
         $this->setup_constants();
         $this->setup_global_vars();
-        add_action( 'woocommerce_loaded', [ $this, 'woocommerce_loaded' ] );
-        register_activation_hook( WFF__FILE__, [ $this, 'activation' ] );
+        add_action( 'woocommerce_loaded', array( $this, 'woocommerce_loaded' ) );
+        register_activation_hook( WFF__FILE__, array( $this, 'activation' ) );
         add_filter(
             'plugin_action_links_' . plugin_basename( WFF__FILE__ ),
-            [ $this, 'plugin_action_links' ],
+            array( $this, 'plugin_action_links' ),
             10,
             2
         );
@@ -48,7 +48,8 @@ class WFF
     
     private function setup_global_vars()
     {
-        /*global $wff_woo_product_orders;
+        /*
+        		global $wff_woo_product_orders;
         		$wff_woo_product_orders = apply_filters(
         			'woocommerce_default_catalog_orderby_options',
         			[
@@ -65,13 +66,14 @@ class WFF
     
     /**
      * Function to set featured first widget and WooCommerce action
+     *
      * @since  0.1
      */
     public function woocommerce_loaded()
     {
         require_once WFF_DIR . '/includes/widgets/class-wff-widget-featured-product.php';
-        foreach ( [ 'woocommerce_delete_product_transients', 'woocommerce_update_options_featured_products_first' ] as $action_hook_to_delete_cache ) {
-            add_action( $action_hook_to_delete_cache, [ $this, 'delete_cache' ] );
+        foreach ( array( 'woocommerce_delete_product_transients', 'woocommerce_update_options_featured_products_first' ) as $action_hook_to_delete_cache ) {
+            add_action( $action_hook_to_delete_cache, array( $this, 'delete_cache' ) );
         }
     }
     
@@ -82,6 +84,7 @@ class WFF
     
     /**
      * Function to set the default settings
+     *
      * @since  0.1
      */
     public function activation()
@@ -118,9 +121,9 @@ class WFF
         if ( is_array( $feature_product_id ) && !empty($feature_product_id) ) {
             
             if ( empty($clauses['orderby']) ) {
-                $clauses['orderby'] = "FIELD(" . $wpdb->posts . ".ID,'" . implode( "','", $feature_product_id ) . "') DESC ";
+                $clauses['orderby'] = 'FIELD(' . $wpdb->posts . ".ID,'" . implode( "','", array_map( 'absint', $feature_product_id ) ) . "') DESC ";
             } else {
-                $clauses['orderby'] = "FIELD(" . $wpdb->posts . ".ID,'" . implode( "','", $feature_product_id ) . "') DESC, " . $clauses['orderby'];
+                $clauses['orderby'] = 'FIELD(' . $wpdb->posts . ".ID,'" . implode( "','", array_map( 'absint', $feature_product_id ) ) . "') DESC, " . $clauses['orderby'];
             }
         
         }
